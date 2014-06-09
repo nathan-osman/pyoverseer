@@ -10,9 +10,11 @@ class ServerDaemon:
         'server': {
             'host': '127.0.0.1',
             'port': '9886',
+        },
+        'ssl': {
             'key_file': 'server.key',
             'crt_file': 'server.crt',
-        }
+        },
     }
     
     def __init__(self):
@@ -21,8 +23,8 @@ class ServerDaemon:
         reactor.listenSSL(self._config.get('server/port'),
                           PYOPFactory(),
                           ssl.DefaultOpenSSLContextFactory(
-                              self._config.get('server/key_file'),
-                              self._config.get('server/crt_file'),
+                              self._config.get('ssl/key_file'),
+                              self._config.get('ssl/crt_file'),
                           ))
     
     def run(self):
