@@ -10,5 +10,9 @@ setup(
     author_email='admin@quickmediasolutions.com',
     url='https://github.com/nathan-osman/pyoverseer',
     license='MIT',
-    packages=['pyoverseer']
+    packages=['pyoverseer'],
+    script=[
+        'bin/pyo-client',
+        'bin/pyo-server',
+    ]
 )
